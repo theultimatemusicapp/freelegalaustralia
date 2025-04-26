@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeLegalAU - Free Legal Advice for Australians</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .law-category:hover .category-icon {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+        .state-flag {
+            transition: all 0.3s ease;
+        }
+        .state-flag:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .form-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .nav-link:hover {
+            color: #3b82f6;
+        }
+        .nav-link:hover::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #3b82f6;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-balance-scale text-blue-600 text-3xl"></i>
+                    <h1 class="text-2xl font-bold text-gray-800">FreeLegal<span class="text-blue-600">AU</span></h1>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-600 font-medium">Home</a>
+                    <a href="#states" class="nav-link text-gray-600 font-medium">States</a>
+                    <a href="#categories" class="nav-link text-gray-600 font-medium">Legal Areas</a>
+                    <a href="#forms" class="nav-link text-gray-600 font-medium">Forms</a>
+                    <a href="#contact" class="nav-link text-gray-600 font-medium">Contact</a>
+                </nav>
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-blue-600 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Free Legal Advice for Australians</h2>
+                    <p class="text-xl mb-6">Access free legal resources, forms, and guidance tailored to your state and legal needs.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#states" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-gray-100 transition">Browse by State</a>
+                        <a href="#categories" class="bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-blue-800 transition">Explore Legal Areas</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Legal scales" class="rounded-lg shadow-xl max-w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- State Selection -->
+    <section id="states" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Select Your State or Territory</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <!-- NSW -->
+                <div class="state-flag bg-white rounded-lg shadow-md p-4 text-center cursor-pointer hover:border-blue-500 border-2 border-transparent">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Flag_of_New_South_Wales.svg/1200px-Flag_of_New_South_Wales.svg.png" alt="NSW Flag" class="w-full h-24 object-contain mb-3">
+                    <h3 class="font-semibold text-gray-800">New South Wales</h3>
+                </div>
+                <!-- VIC -->
+                <div class="state-flag bg-white rounded-lg shadow-md p-4 text-center cursor-pointer hover:border-blue-500 border-2 border-transparent">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Flag_of_Victoria_%28Australia%29.svg/1200px-Flag_of_Victoria_%28Australia%29.svg.png" alt="VIC Flag" class="w-full h-24 object-contain mb-3">
+                    <h3 class="font-semibold text-gray-800">Victoria</h3>
+                </div>
+                <!-- QLD -->
+                <div class="state-flag bg-white rounded-lg shadow-md p-4 text-center cursor-pointer hover:border-blue-500 border-2 border-transparent">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Flag_of_Queensland.svg/1200px-Flag_of_Queensland.svg.png" alt="QLD Flag" class="w-full h-24 object-contain mb-3">
+                    <h3 class="font-semibold text-gray-800">Queensland</h3>
+                </div>
+                <!-- WA -->
+                <div class="state-flag bg-white rounded-lg shadow-md p-4 text-center cursor-pointer hover:border-blue-500 border-2 border-transparent">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_Western_Australia.svg/1200px-Flag_of_Western_Australia.svg.png" alt="WA Flag" class="w-full h-24 object-contain mb-3">
+                    <h3 class="font-semibold text-gray-800">Western Australia</h3>
+                </div>
+                <!-- SA -->
+                <div class="state-flag bg-white rounded-lg shadow-md p-4 text-center cursor-pointer hover:border-blue-500 border-2 border-transparent">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_South_Australia.svg/1200px-Flag_of_South_Australia.svg.png" alt="SA Flag" class="w-full h-24 object-contain mb-3">
+                    <h3 class="font-semibold text-gray-800">South Australia</h3>
+                </div>
+                <!-- TAS -->
+                <div class="state-flag bg-white rounded-lg shadow-md p-4 text-center cursor-pointer hover:border-blue-500 border-2 border-transparent">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Flag_of_Tasmania.svg/1200px-Flag_of_Tasmania.svg.png" alt="TAS Flag" class="w-full h-24 object-contain mb-3">
+                    <h3 class="font-semibold text-gray-800">Tasmania</h3>
+                </div>
+                <!-- ACT -->
+                <div class="state-flag bg-white rounded-lg shadow-md p-4 text-center cursor-pointer hover:border-blue-500 border-2 border-transparent">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_the_Australian_Capital_Territory.svg/1200px-Flag_of_the_Australian_Capital_Territory.svg.png" alt="ACT Flag" class="w-full h-24 object-contain mb-3">
+                    <h3 class="font-semibold text-gray-800">ACT</h3>
+                </div>
+                <!-- NT -->
+                <div class="state-flag bg-white rounded-lg shadow-md p-4 text-center cursor-pointer hover:border-blue-500 border-2 border-transparent">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_the_Northern_Territory.svg/1200px-Flag_of_the_Northern_Territory.svg.png" alt="NT Flag" class="w-full h-24 object-contain mb-3">
+                    <h3 class="font-semibold text-gray-800">Northern Territory</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Law Categories -->
+    <section id="categories" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Legal Areas We Cover</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Family Law -->
+                <div class="law-category bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="category-icon bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-home text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Family Law</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Divorce, child custody, property settlements, and domestic violence matters.</p>
+                    <a href="#" class="text-blue-600 font-medium flex items-center">Learn more <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                <!-- Criminal Law -->
+                <div class="law-category bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="category-icon bg-red-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-gavel text-red-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Criminal Law</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Legal representation for offenses, bail applications, and court procedures.</p>
+                    <a href="#" class="text-blue-600 font-medium flex items-center">Learn more <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                <!-- Employment Law -->
+                <div class="law-category bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="category-icon bg-green-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-briefcase text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Employment Law</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Unfair dismissal, workplace rights, discrimination, and employment contracts.</p>
+                    <a href="#" class="text-blue-600 font-medium flex items-center">Learn more <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                <!-- Property Law -->
+                <div class="law-category bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="category-icon bg-yellow-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-house-user text-yellow-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Property Law</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Buying/selling property, leases, strata law, and property disputes.</p>
+                    <a href="#" class="text-blue-600 font-medium flex items-center">Learn more <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                <!-- Immigration Law -->
+                <div class="law-category bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="category-icon bg-purple-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-passport text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Immigration Law</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Visa applications, citizenship, deportation issues, and refugee claims.</p>
+                    <a href="#" class="text-blue-600 font-medium flex items-center">Learn more <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                <!-- Consumer Law -->
+                <div class="law-category bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="category-icon bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-shopping-cart text-indigo-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Consumer Law</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Consumer rights, refunds, warranties, and misleading advertising.</p>
+                    <a href="#" class="text-blue-600 font-medium flex items-center">Learn more <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Forms -->
+    <section id="forms" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Common Legal Forms</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Form 1 -->
+                <div class="form-card bg-white rounded-lg shadow-md p-6 border border-gray-200 transition">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-file-contract text-blue-600 text-3xl mr-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Divorce Application</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Complete this form to apply for a divorce in Australia. Includes instructions for filing.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">PDF, 250KB</span>
+                        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Download</a>
+                    </div>
+                </div>
+                <!-- Form 2 -->
+                <div class="form-card bg-white rounded-lg shadow-md p-6 border border-gray-200 transition">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-file-signature text-green-600 text-3xl mr-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Tenancy Agreement</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Standard residential tenancy agreement form for all Australian states and territories.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">PDF, 180KB</span>
+                        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Download</a>
+                    </div>
+                </div>
+                <!-- Form 3 -->
+                <div class="form-card bg-white rounded-lg shadow-md p-6 border border-gray-200 transition">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-file-alt text-yellow-600 text-3xl mr-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Will Template</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Simple will template that meets Australian legal requirements for testamentary documents.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">DOCX, 120KB</span>
+                        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Download</a>
+                    </div>
+                </div>
+                <!-- Form 4 -->
+                <div class="form-card bg-white rounded-lg shadow-md p-6 border border-gray-200 transition">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-file-invoice text-purple-600 text-3xl mr-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Employment Contract</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Standard employment contract template compliant with Australian Fair Work regulations.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">DOCX, 210KB</span>
+                        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Download</a>
+                    </div>
+                </div>
+                <!-- Form 5 -->
+                <div class="form-card bg-white rounded-lg shadow-md p-6 border border-gray-200 transition">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-file-medical text-red-600 text-3xl mr-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Power of Attorney</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Legal document appointing someone to make decisions on your behalf in Australia.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">PDF, 190KB</span>
+                        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Download</a>
+                    </div>
+                </div>
+                <!-- Form 6 -->
+                <div class="form-card bg-white rounded-lg shadow-md p-6 border border-gray-200 transition">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-file-import text-indigo-600 text-3xl mr-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">AVO Application</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Apprehended Violence Order application form for protection against violence or harassment.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">PDF, 150KB</span>
+                        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Download</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="#" class="inline-block bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">View All Forms</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Frequently Asked Questions</h2>
+            <div class="max-w-3xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="mb-6 bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                        <h3 class="text-lg font-semibold text-gray-800">Is the legal advice on this website free?</h3>
+                        <i class="fas fa-chevron-down text-blue-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">Yes, all the legal information and resources provided on FreeLegalAU are completely free to access. We offer general legal information and templates, but for specific legal advice tailored to your situation, we recommend consulting with a qualified legal professional.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="mb-6 bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                        <h3 class="text-lg font-semibold text-gray-800">How often are the legal forms updated?</h3>
+                        <i class="fas fa-chevron-down text-blue-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">We review and update our legal forms quarterly to ensure they comply with current Australian laws. However, laws can change frequently, so we recommend checking with your state or territory's legal authority or consulting a lawyer before using any legal document.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="mb-6 bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                        <h3 class="text-lg font-semibold text-gray-800">Can I get personalized legal advice through this website?</h3>
+                        <i class="fas fa-chevron-down text-blue-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">While we provide general legal information, we cannot offer personalized legal advice through this platform. For specific legal matters, we can connect you with legal aid services in your state or provide referrals to qualified lawyers who may offer free initial consultations.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="mb-6 bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                        <h3 class="text-lg font-semibold text-gray-800">Are the legal resources different for each state?</h3>
+                        <i class="fas fa-chevron-down text-blue-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">Yes, many areas of law vary between Australian states and territories. When you select your state, we provide information and forms specific to your jurisdiction. Some general legal principles apply nationwide, but procedures and specific laws often differ.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-blue-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-8">Need More Help?</h2>
+                <p class="text-center text-xl mb-12 max-w-2xl mx-auto">Contact us for general inquiries or to suggest additional resources you'd like to see on our platform.</p>
+                
+                <div class="bg-white rounded-lg shadow-xl p-8 text-gray-800">
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="state" class="block text-gray-700 font-medium mb-2">State/Territory</label>
+                            <select id="state" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select your state</option>
+                                <option value="nsw">New South Wales</option>
+                                <option value="vic">Victoria</option>
+                                <option value="qld">Queensland</option>
+                                <option value="wa">Western Australia</option>
+                                <option value="sa">South Australia</option>
+                                <option value="tas">Tasmania</option>
+                                <option value="act">Australian Capital Territory</option>
+                                <option value="nt">Northern Territory</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-balance-scale text-blue-400 text-2xl"></i>
+                        <h3 class="text-xl font-bold">FreeLegal<span class="text-blue-400">AU</span></h3>
+                    </div>
+                    <p class="text-gray-400">Providing free legal resources and information to all Australians since 2023.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#states" class="text-gray-400 hover:text-white transition">States</a></li>
+                        <li><a href="#categories" class="text-gray-400 hover:text-white transition">Legal Areas</a></li>
+                        <li><a href="#forms" class="text-gray-400 hover:text-white transition">Forms</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Legal Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Legal Aid by State</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Court Websites</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Law Libraries</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Community Legal Centres</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+                    </div>
+                    <p class="text-gray-400 mb-2"><i class="fas fa-envelope mr-2"></i> info@freelegalau.org</p>
+                    <p class="text-gray-400"><i class="fas fa-phone mr-2"></i> 1800 123 456</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 FreeLegalAU. All rights reserved. This website provides general legal information only and does not constitute legal advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqContent = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Toggle content visibility
+                faqContent.classList.toggle('hidden');
+                
+                // Rotate icon
+                if (faqContent.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // State Selection Functionality
+        document.querySelectorAll('.state-flag').forEach(state => {
+            state.addEventListener('click', () => {
+                // In a real implementation, this would redirect to state-specific page
+                alert('You selected: ' + state.querySelector('h3').textContent + 
+                      '\nThis would navigate to state-specific legal resources in a full implementation.');
+            });
+        });
+
+        // Mobile Menu Toggle (would be implemented in a full version)
+        document.querySelector('header button').addEventListener('click', () => {
+            alert('Mobile menu would open here in a full implementation.');
+        });
+    </script>
+</body>
+</html>
