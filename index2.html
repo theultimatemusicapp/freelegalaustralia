@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belgium Wonders - Explore the Heart of Europe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1519671488599-3faf80ee0a53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .circuit-card {
+            transition: all 0.3s ease;
+        }
+        
+        .circuit-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .map-container {
+            height: 400px;
+            width: 100%;
+        }
+        
+        .floating-label {
+            transition: all 0.3s ease;
+        }
+        
+        input:focus + .floating-label,
+        textarea:focus + .floating-label,
+        input:not(:placeholder-shown) + .floating-label,
+        textarea:not(:placeholder-shown) + .floating-label {
+            transform: translateY(-1.5rem) scale(0.85);
+            color: #4f46e5;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center space-x-2">
+                        <i class="fas fa-landmark text-indigo-600 text-2xl"></i>
+                        <span class="text-xl font-bold text-gray-800">Belgium Wonders</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#destinations" class="text-gray-700 hover:text-indigo-600 px-3 py-2 font-medium">Destinations</a>
+                    <a href="#values" class="text-gray-700 hover:text-indigo-600 px-3 py-2 font-medium">Our Values</a>
+                    <a href="#circuits" class="text-gray-700 hover:text-indigo-600 px-3 py-2 font-medium">Circuits</a>
+                    <a href="#office" class="text-gray-700 hover:text-indigo-600 px-3 py-2 font-medium">Our Office</a>
+                    <a href="#contact" class="text-gray-700 hover:text-indigo-600 px-3 py-2 font-medium">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-gray-700 hover:text-indigo-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#destinations" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">Destinations</a>
+                <a href="#values" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">Our Values</a>
+                <a href="#circuits" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">Circuits</a>
+                <a href="#office" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">Our Office</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-indigo-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero text-white py-32 px-4 md:px-0">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Discover the Magic of Belgium</h1>
+            <p class="text-xl md:text-2xl mb-8">From medieval towns to modern cities, chocolate to beer, and art to architecture - experience the best of Belgium with our curated tours.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#circuits" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Explore Tours</a>
+                <a href="#contact" class="bg-white hover:bg-gray-100 text-indigo-600 font-bold py-3 px-6 rounded-lg transition duration-300">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="py-16 px-4 md:px-0 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Must-Visit Destinations</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Belgium offers a diverse range of experiences. Here are some of our top picks for your Belgian adventure.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Destination 1 -->
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1519671488599-3faf80ee0a53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Brussels" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Brussels</h3>
+                        <p class="text-gray-600 mb-4">The vibrant capital with stunning architecture, world-class museums, and the famous Grand Place.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Capital</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">EU Hub</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Chocolate</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Destination 2 -->
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1600077106724-9465a8c8ad0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Bruges" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Bruges</h3>
+                        <p class="text-gray-600 mb-4">The fairy-tale medieval city with picturesque canals, cobbled streets, and romantic atmosphere.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Medieval</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Canals</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">UNESCO</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Destination 3 -->
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ghent" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Ghent</h3>
+                        <p class="text-gray-600 mb-4">A perfect blend of medieval charm and contemporary culture with stunning cathedrals and vibrant nightlife.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Historic</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Student City</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Art</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Destination 4 -->
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1580734698756-3dff1e5e9a1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Antwerp" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Antwerp</h3>
+                        <p class="text-gray-600 mb-4">The diamond capital with fashion, art, and a stunning cathedral in the heart of the Flemish region.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Diamonds</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Fashion</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Port City</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Destination 5 -->
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1583324113626-70bca23a3996?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Liège" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Liège</h3>
+                        <p class="text-gray-600 mb-4">The vibrant Walloon city with a rich history, famous waffles, and the impressive Montagne de Bueren.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Wallonia</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Waffles</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">History</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Destination 6 -->
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Ardennes" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Ardennes</h3>
+                        <p class="text-gray-600 mb-4">Belgium's natural paradise with dense forests, rolling hills, and outdoor activities for all seasons.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Nature</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Hiking</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Adventure</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="values" class="py-16 px-4 md:px-0 bg-indigo-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Core Values</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">What makes Belgium Wonders the perfect choice for your Belgian adventure</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Value 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="bg-indigo-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-map-marked-alt text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Local Expertise</h3>
+                    <p class="text-gray-600">Our guides are Belgian natives who know every hidden gem and can share authentic insights about our culture and history.</p>
+                </div>
+                
+                <!-- Value 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="bg-indigo-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-heart text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Sustainable Tourism</h3>
+                    <p class="text-gray-600">We're committed to responsible travel that benefits local communities and preserves Belgium's heritage for future generations.</p>
+                </div>
+                
+                <!-- Value 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="bg-indigo-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-star text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Personalized Experiences</h3>
+                    <p class="text-gray-600">We tailor every tour to match your interests, whether you're a history buff, foodie, or nature lover.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Circuits Section -->
+    <section id="circuits" class="py-16 px-4 md:px-0 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Signature Circuits</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Choose from our carefully curated tours to experience the best of Belgium</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Circuit 1 -->
+                <div class="circuit-card bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1519671488599-3faf80ee0a53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Classic Belgium" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">BEST SELLER</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Classic Belgium Tour</h3>
+                        <p class="text-gray-600 mb-4">7-day journey through Brussels, Bruges, Ghent, and Antwerp covering major highlights.</p>
+                        <div class="flex items-center text-yellow-400 mb-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-600 ml-2">4.7 (128 reviews)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-gray-800">€1,299</span>
+                            <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Circuit 2 -->
+                <div class="circuit-card bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Nature & Adventure" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Ardennes Adventure</h3>
+                        <p class="text-gray-600 mb-4">5-day outdoor experience with hiking, kayaking, and exploring Belgium's natural beauty.</p>
+                        <div class="flex items-center text-yellow-400 mb-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="text-gray-600 ml-2">4.3 (87 reviews)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-gray-800">€899</span>
+                            <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Circuit 3 -->
+                <div class="circuit-card bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1583324113626-70bca23a3996?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Wallonia Discovery" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Wallonia Discovery</h3>
+                        <p class="text-gray-600 mb-4">4-day tour of French-speaking Belgium including Liège, Namur, and the Battlefields of Waterloo.</p>
+                        <div class="flex items-center text-yellow-400 mb-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-600 ml-2">4.9 (64 reviews)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-gray-800">€749</span>
+                            <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Circuit 4 -->
+                <div class="circuit-card bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1600077106724-9465a8c8ad0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Bruges & Ghent" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Medieval Gems: Bruges & Ghent</h3>
+                        <p class="text-gray-600 mb-4">3-day immersive experience in Belgium's most beautiful medieval cities.</p>
+                        <div class="flex items-center text-yellow-400 mb-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-600 ml-2">4.6 (93 reviews)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-gray-800">€599</span>
+                            <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Circuit 5 -->
+                <div class="circuit-card bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1580734698756-3dff1e5e9a1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Beer & Chocolate" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Beer & Chocolate Tour</h3>
+                        <p class="text-gray-600 mb-4">2-day indulgence in Belgium's most famous exports with brewery visits and chocolate workshops.</p>
+                        <div class="flex items-center text-yellow-400 mb-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-600 ml-2">5.0 (112 reviews)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-gray-800">€449</span>
+                            <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Circuit 6 -->
+                <div class="circuit-card bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Custom Tour" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">FLEXIBLE</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Custom Belgian Experience</h3>
+                        <p class="text-gray-600 mb-4">Create your perfect itinerary with our local experts. Duration and destinations tailored to your preferences.</p>
+                        <div class="flex items-center text-yellow-400 mb-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-600 ml-2">4.8 (76 reviews)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-gray-800">From €799</span>
+                            <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Section -->
+    <section id="office" class="py-16 px-4 md:px-0 bg-indigo-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Office</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Visit us in Brussels or get in touch - we'd love to help plan your Belgian adventure</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Brussels Headquarters</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-indigo-600 mt-1 mr-3"></i>
+                                <p class="text-gray-600">Rue du Marché aux Herbes 110, 1000 Brussels, Belgium</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt text-indigo-600 mt-1 mr-3"></i>
+                                <p class="text-gray-600">+32 2 123 45 67</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-indigo-600 mt-1 mr-3"></i>
+                                <p class="text-gray-600">info@belgiumwonders.com</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-clock text-indigo-600 mt-1 mr-3"></i>
+                                <p class="text-gray-600">Monday - Friday: 9:00 - 18:00<br>Saturday: 10:00 - 16:00<br>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Our Team</h3>
+                        <p class="text-gray-600 mb-6">Our multilingual team of Belgian travel experts is ready to assist you in English, French, Dutch, and German.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex items-center">
+                                <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sophie" class="w-12 h-12 rounded-full mr-3">
+                                <div>
+                                    <p class="font-medium text-gray-800">Sophie</p>
+                                    <p class="text-sm text-gray-600">Tour Coordinator</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Thomas" class="w-12 h-12 rounded-full mr-3">
+                                <div>
+                                    <p class="font-medium text-gray-800">Thomas</p>
+                                    <p class="text-sm text-gray-600">Customer Service</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Marie" class="w-12 h-12 rounded-full mr-3">
+                                <div>
+                                    <p class="font-medium text-gray-800">Marie</p>
+                                    <p class="text-sm text-gray-600">Tour Guide</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-container rounded-lg shadow-md overflow-hidden">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2519.215012002802!2d4.352277315745593!3d50.84686697953199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c47fd3d0d6e9%3A0x5e0ec1a3a0d3a0a0!2sRue%20du%20March%C3%A9%20aux%20Herbes%20110%2C%201000%20Bruxelles%2C%20Belgium!5e0!3m2!1sen!2sus!4v1623250000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-4 md:px-0 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Have questions about our tours or need help planning your trip? Contact us and we'll respond within 24 hours.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <form class="space-y-6">
+                        <div class="relative">
+                            <input type="text" id="name" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            <label for="name" class="floating-label absolute left-4 top-3 text-gray-500 pointer-events-none">Your Name</label>
+                        </div>
+                        
+                        <div class="relative">
+                            <input type="email" id="email" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            <label for="email" class="floating-label absolute left-4 top-3 text-gray-500 pointer-events-none">Email Address</label>
+                        </div>
+                        
+                        <div class="relative">
+                            <input type="tel" id="phone" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            <label for="phone" class="floating-label absolute left-4 top-3 text-gray-500 pointer-events-none">Phone Number</label>
+                        </div>
+                        
+                        <div class="relative">
+                            <select id="interest" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent appearance-none bg-white">
+                                <option value="" selected disabled hidden></option>
+                                <option value="classic">Classic Belgium Tour</option>
+                                <option value="ardennes">Ardennes Adventure</option>
+                                <option value="wallonia">Wallonia Discovery</option>
+                                <option value="medieval">Medieval Gems</option>
+                                <option value="beer">Beer & Chocolate Tour</option>
+                                <option value="custom">Custom Tour</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                            <label for="interest" class="floating-label absolute left-4 top-3 text-gray-500 pointer-events-none">Tour Interest</label>
+                            <i class="fas fa-chevron-down absolute right-4 top-4 text-gray-400"></i>
+                        </div>
+                        
+                        <div class="relative">
+                            <textarea id="message" rows="4" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+                            <label for="message" class="floating-label absolute left-4 top-3 text-gray-500 pointer-events-none">Your Message</label>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="bg-indigo-50 p-8 rounded-lg">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Other Ways to Reach Us</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Call Us</h4>
+                                <p class="text-gray-600">+32 2 123 45 67</p>
+                                <p class="text-sm text-gray-500">Available during office hours</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Email Us</h4>
+                                <p class="text-gray-600">info@belgiumwonders.com</p>
+                                <p class="text-sm text-gray-500">We respond within 24 hours</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-comment-alt text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Live Chat</h4>
+                                <p class="text-gray-600">Available on our website</p>
+                                <p class="text-sm text-gray-500">Monday-Friday, 9:00-17:00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-share-alt text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Social Media</h4>
+                                <div class="flex space-x-4 mt-2">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800"><i class="fab fa-facebook-f text-xl"></i></a>
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800"><i class="fab fa-twitter text-xl"></i></a>
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800"><i class="fab fa-instagram text-xl"></i></a>
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800"><i class="fab fa-linkedin-in text-xl"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-12 bg-indigo-600 text-white px-4 md:px-0">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Get Belgium Travel Tips & Deals</h2>
+            <p class="mb-6 max-w-2xl mx-auto">Subscribe to our newsletter for monthly updates on Belgian events, special tour offers, and insider tips.</p>
+            <form class="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-lg focus:outline-none text-gray-800">
+                <button type="submit" class="bg-white hover:bg-gray-100 text-indigo-600 font-bold py-3 px-6 rounded-lg transition duration-300">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 px-4 md:px-0">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <a href="#" class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-landmark text-indigo-400 text-2xl"></i>
+                        <span class="text-xl font-bold">Belgium Wonders</span>
+                    </a>
+                    <p class="text-gray-400 mb-4">Your trusted guide to authentic Belgian experiences since 2010.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#destinations" class="text-gray-400 hover:text-white">Destinations</a></li>
+                        <li><a href="#circuits" class="text-gray-400 hover:text-white">Tours</a></li>
+                        <li><a href="#values" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Booking Conditions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Cookie Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Info</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-indigo-400"></i>
+                            <span>Rue du Marché aux Herbes 110, 1000 Brussels</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-indigo-400"></i>
+                            <span>+32 2 123 45 67</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-indigo-400"></i>
+                            <span>info@belgiumwonders.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Belgium Wonders. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Form floating labels
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            // Add focus/blur events
+            input.addEventListener('focus', function() {
+                const label = this.nextElementSibling;
+                if (label && label.classList.contains('floating-label')) {
+                    label.classList.add('text-indigo-600');
+                }
+            });
+            
+            input.addEventListener('blur', function() {
+                const label = this.nextElementSibling;
+                if (label && label.classList.contains('floating-label')) {
+                    label.classList.remove('text-indigo-600');
+                }
+            });
+            
+            // Initialize labels for pre-filled fields
+            if (input.value) {
+                const label = input.nextElementSibling;
+                if (label && label.classList.contains('floating-label')) {
+                    label.classList.add('transform', '-translate-y-6', 'scale-75', 'text-indigo-600');
+                }
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
